@@ -29,3 +29,29 @@ class HelloWorld {
         
     }
 }
+
+
+// output
+// No. of Hai : 
+// 3
+// No. of row : 
+// 2
+// No. of block : 
+// 4
+// Hai Hai Hai 
+// Hai Hai Hai 
+// 6
+// ----------------------
+// Hai Hai Hai 
+// Hai Hai Hai 
+// 12
+// ----------------------
+// Hai Hai Hai 
+// Hai Hai Hai 
+// 18
+// ----------------------
+// Hai Hai Hai 
+// Hai Hai Hai 
+// 24
+// ----------------------
+// 300
