@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+class HelloWorld {
+    public static void main(String[] args) {
+        Scanner io = new Scanner(System.in);
+        int n = io.nextInt();
+        printPrimeFactors(n, 2);
+    }
+
+    public static void printPrimeFactors(int n, int divisor) {
+        if (n == 1) {
+            return;
+        }
+        if (n % divisor == 0) {
+            System.out.print(divisor+" ");
+            printPrimeFactors(n / divisor, divisor);
+        } else {
+            printPrimeFactors(n, divisor + 1);
+        }
+    }
+}
