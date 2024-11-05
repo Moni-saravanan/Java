@@ -1,0 +1,31 @@
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        Scanner io = new Scanner(System.in);
+        System.out.println("No. of Hai : ");
+        int n = io.nextInt();
+        System.out.println("No. of row : ");
+        int r = io.nextInt();
+        System.out.println("No. of block : ");
+        int b = io.nextInt();
+        int count = 0 ;
+        for( int k = 0 ; k < b ; k++ ) {
+            for( int i = 0 ; i < r ;i++ ) {
+                for( int j = 0 ; j < n ; j++ ){
+                    System.out.print("Hai"+" ");
+                    count++;
+            }
+            System.out.println();
+            
+        }
+        System.out.println(count);
+        System.out.println("----------------------");
+        }
+        int add = 0;
+        for( int i = 1 ; i <= count ; i++ ) {
+            add += i ;
+        }
+        System.out.println("Addition : " + add);
+        
+    }
+}
