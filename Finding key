@@ -1,0 +1,42 @@
+import java.util.*;
+public class Main
+{
+    public static ArrayList<Integer> array(int n)
+    {
+        ArrayList<Integer> v=new ArrayList<>();
+        int rem;
+        while(n!=0)
+        {
+            rem=n%10;
+            v.add(rem);
+            n/=10;
+        }
+        return v;
+    }
+    
+    
+    public static int calculate(int a,int b,int c) 
+    {
+        ArrayList<Integer> ip1= array(a);
+        ArrayList<Integer> ip2= array(b);
+        ArrayList<Integer> ip3= array(c);
+        int m=Collections.max(ip1)+Collections.max(ip2)+Collections.max(ip3);
+        int s=Collections.min(ip1)+Collections.min(ip2)+Collections.min(ip3);
+        return s+m;
+        
+    }
+    
+    
+	public static void main(String[] args)  {
+	   Scanner io = new  Scanner(System.in);
+	   System.out.print("ip1 : ");
+	   int a = io.nextInt();
+	   System.out.print("ip2 : ");
+	   int b = io.nextInt();
+	   System.out.print("ip3 : ");
+	   int c = io.nextInt();
+	   int key = calculate(a,b,c);
+	   System.out.println(key);
+	   
+	}
+}
