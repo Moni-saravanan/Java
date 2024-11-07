@@ -1,0 +1,69 @@
+import java.util.*;
+
+public class HelloWorld {
+    
+    public static char relation(int count) {
+        String flames = "FLAMES";
+        StringBuilder flamesBuilder = new StringBuilder(flames);
+
+        int index = 0;
+        while (flamesBuilder.length() > 1) {
+            index = (index + count - 1) % flamesBuilder.length();
+            flamesBuilder.deleteCharAt(index);
+        }
+        char resultChar = flamesBuilder.charAt(0);
+        switch (resultChar) {
+            case 'F': return 'F';
+            case 'L': return 'L';
+            case 'A': return 'A';
+            case 'M': return 'M';
+            case 'E': return 'E';
+            case 'S': return 'S';
+            default: return 'N';
+        }
+    }
+    
+    
+    public static int skip(String b,String g){
+        int bl = b.length();
+        int gl = g.length();
+        char[] ch1 = b.toCharArray();
+        char[] ch2 = g.toCharArray();
+        for (int i = 0; i < bl; i++) {
+            for (int j = 0; j < gl; j++) {
+                if (ch1[i] == ch2[j]) {
+                    ch1[i] = '2';
+                    ch2[j] = '3';
+                }
+            }
+        }
+        int t = 0;
+        for (int i = 0; i < bl; i++) {
+            if (Character.isLetter(ch1[i])) {
+                t++;
+                
+            }
+        }
+        for (int i = 0; i < gl; i++) {
+            if (Character.isLetter(ch2[i])) {
+                t++;
+            }
+        }
+        return t;
+    }
+    
+    
+    public static void main(String[] args) {
+        Scanner io = new Scanner(System.in);
+        System.out.println("Enter boy name: ");
+        String b = io.next();
+        System.out.println("Enter girl name: ");
+        String g = io.next();
+        int count=skip(b,g);
+        char r=relation(count);
+        System.out.println(r);
+        
+        
+        
+    }
+}
