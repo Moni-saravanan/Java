@@ -1,9 +1,7 @@
 import java.util.*;
-
 class Graph {
     int vertices;
     LinkedList<Integer>[] adjList;
-
     Graph(int vertices) {
         this.vertices = vertices;
         adjList = new LinkedList[vertices];
@@ -11,24 +9,19 @@ class Graph {
             adjList[i] = new LinkedList<>();
         }
     }
-
     public void addedge(int a, int b) {
         adjList[a].add(b);
         adjList[b].add(a);
     }
-
     public void bfs(int start) {
         boolean[] visited = new boolean[vertices];
         Queue<Integer> q = new LinkedList<>();
         visited[start] = true;
         q.add(start);
-
         System.out.println("We are starting BFS from: " + start);
-
         while (!q.isEmpty()) {
             int vertex = q.poll();
             System.out.print(vertex + " ");
-
             for (int neighbor : adjList[vertex]) {
                 if (!visited[neighbor]) {
                     visited[neighbor] = true;
@@ -38,7 +31,6 @@ class Graph {
         }
     }
 }
-
 public class HelloWorld {
     public static void main(String[] args) {
         Graph g = new Graph(6);
@@ -51,3 +43,6 @@ public class HelloWorld {
         g.bfs(0);
     }
 }
+
+//BFS in Adjacency list is effeciency in space
+//time effeciency in matrix
