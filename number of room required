@@ -1,0 +1,36 @@
+import java.util.*;
+class HelloWorld 
+{
+    public static void main(String[] args) 
+    {
+        Scanner io=new Scanner(System.in);
+        int interval=io.nextInt();
+        int[][] time=new int[interval][2];
+        for(int i=0;i<interval;i++){
+            for(int j=0;j<2;j++){
+                time[i][j]=io.nextInt();
+            }
+        }
+        int[] start=new int[interval];
+        int[] end=new int[interval];
+        for(int i=0;i<interval;i++){
+            start[i]=time[i][0];
+            end[i]=time[i][1];
+        }
+        Arrays.sort(start);
+        Arrays.sort(end);
+        int s=0,e=0,r=0;
+        while(s!=start.length)
+        {
+            if(start[s]<=end[e]){
+                r++;
+            }
+            else{
+                e++;
+            }
+            s++;
+        }
+        System.out.println(r);
+        
+    }
+}
