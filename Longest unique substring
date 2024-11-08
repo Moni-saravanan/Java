@@ -1,0 +1,20 @@
+import java.util.*;
+class LongestSubstring{
+public static void main(String[] args) {
+        Scanner io=new Scanner(System.in);
+        String str=io.next();
+        Set<Character> set=new HashSet<>();
+        int s=0,e=0;
+        int count=0;
+        while(e<str.length()){
+            char ch=str.charAt(e);
+            while(set.contains(ch)){
+                set.remove(str.charAt(s));
+                s++;
+            }
+            set.add(ch);
+            e++;
+        }
+        System.out.println(set.size());
+    }
+}
