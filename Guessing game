@@ -1,0 +1,72 @@
+import java.util.*;
+
+class HelloWorld {
+    public static void main(String[] args) {
+        List<Integer> l = new ArrayList<>();
+        while (l.size() != 5) {
+            int num = (int) (Math.random() * 11);
+            if (!l.contains(num) && num != 0) {
+                l.add(num);
+            }
+        }
+
+        Scanner io = new Scanner(System.in);
+        int s1 = 0, s2 = 0;
+
+        System.out.print("Name of Player 1: ");
+        String p1 = io.next();
+        System.out.print("Name of Player 2: ");
+        String p2 = io.next();
+        Set<Integer> guessedNumbers = new HashSet<>();
+        List<Integer> lp1 = new ArrayList<>();
+        List<Integer> lp2 = new ArrayList<>();
+        System.out.print("Are you ready:(Y/N) : ");
+        char ch=io.next().charAt(0);
+        if(ch=='y'){
+            for (int i = 0; i < 3; i++) {
+            System.out.print(p1 + " Your Chance: ");
+            int c1 = io.nextInt();
+            while (guessedNumbers.contains(c1)) {
+                System.out.print("Number already guessed. Another try: ");
+                c1 = io.nextInt();
+            }
+            guessedNumbers.add(c1);
+            if (l.contains(c1)) {
+                lp1.add(c1);
+                System.out.println("CORRECT");
+                s1++;
+            } else {
+                System.out.println("WRONG");
+            }
+            System.out.print(p2 + " Your Chance: ");
+            int c2 = io.nextInt();
+            while (guessedNumbers.contains(c2)) {
+                System.out.print("Number already guessed. Another try: ");
+                c2 = io.nextInt();
+            }
+            guessedNumbers.add(c2);
+            if (l.contains(c2)) {
+                lp2.add(c2);
+                System.out.println("CORRECT");
+                s2++;
+            } else {
+                System.out.println("WRONG");
+            }
+        }
+
+        // Display final scores
+        System.out.println(p1 + "'s Score: " + s1);
+        System.out.println(p2 + "'s Score: " + s2);
+
+        if (s1 > s2) {
+            System.out.println(p1 + " wins!");
+        } else if (s2 > s1) {
+            System.out.println(p2 + " wins!");
+        } else {
+            System.out.println("It's a tie!");
+        }
+        }
+        
+        System.out.println("Bye Bye . . . . !");
+    }
+}
