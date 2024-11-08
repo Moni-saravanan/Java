@@ -1,0 +1,144 @@
+import java.util.*;
+
+class List {
+    Node head = null;
+    class Node {
+        String data;
+        Node next;
+
+        Node(String val) {
+            data = val;
+            next = null;
+        }
+    }
+    public void insertAtEnd(String val) {
+        Node newnode = new Node(val);
+        if (head == null) {
+            head = newnode;
+        } else {
+            Node temp = head;
+            while (temp.next != null) {
+                temp = temp.next;
+            }
+            temp.next = newnode;
+        }
+        System.out.println("Successfully inserted at end");
+    }
+    public void insert(String val) {
+        Node newnode = new Node(val);
+        newnode.next = head;
+        head = newnode;
+        System.out.println("Inserted Successfully");
+    }
+    public void display() {
+        if (head == null) {
+            System.out.println("The list is empty.");
+            return;
+        }
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data+"-->");
+            temp = temp.next;
+        }
+        System.out.println("0");
+    }
+    public void insertAtPosition(String val, int pos) {
+        Node newnode = new Node(val);
+        if (pos == 0) {
+            insert(val);
+        } else {
+            Node temp = head;
+            for (int i = 1; i < pos; i++) {
+                if (temp == null) {
+                    System.out.println("Position out of range.");
+                    return;
+                }
+                temp = temp.next;
+            }
+            if (temp != null) {
+                newnode.next = temp.next;
+                temp.next = newnode;
+                System.out.println("Inserted Successfully at position " + pos);
+            } else {
+                System.out.println("Position out of range.");
+            }
+        }
+    }
+    public void delete(int pos) {
+        if (head == null) {
+            System.out.println("Can't delete from an empty list.");
+            return;
+        }
+        if (pos == 0) {
+            head = head.next;
+            System.out.println("Deleted Successfully");
+            return;
+        }
+        Node temp = head;
+        for (int i = 1; i < pos; i++) {
+            if (temp.next == null) {
+                System.out.println("Position out of range.");
+                return;
+            }
+            temp = temp.next;
+        }
+        if (temp.next != null) {
+            temp.next = temp.next.next;
+            System.out.println("Deleted Successfully");
+        } else {
+            System.out.println("Position out of range.");
+        }
+    }
+
+    public static void main(String[] args) {
+        List l = new List();
+        Scanner io = new Scanner(System.in);
+        int c = -1;
+        System.out.println("Singly Linked List");
+        System.out.println("------------------");
+        System.out.println("Your Choice (below 5):");
+        System.out.println("0. Exit");
+        System.out.println("1. Insert");
+        System.out.println("2. Insert at position");
+        System.out.println("3. Insert at end");
+        System.out.println("4. Delete at position");
+        System.out.println("5. Display");
+        System.out.println("---------------------------");
+        while (c != 0) {
+            System.out.print("Enter your choice: ");
+            c = io.nextInt();
+            switch (c) {
+                case 1:
+                    System.out.print("Enter name to insert: ");
+                    String val1 = io.next();
+                    l.insert(val1);
+                    break;
+                case 2:
+                    System.out.print("Enter name to insert: ");
+                    String val2 = io.next();
+                    System.out.print("Enter your preferred position: ");
+                    int pos = io.nextInt();
+                    l.insertAtPosition(val2, pos);
+                    break;
+                case 3:
+                    System.out.print("Enter name to insert at end: ");
+                    String val3 = io.next();
+                    l.insertAtEnd(val3);
+                    break;
+                case 4:
+                    System.out.print("Enter the position you want to delete: ");
+                    int delPos = io.nextInt();
+                    l.delete(delPos);
+                    break;
+                case 5:
+                    l.display();
+                    break;
+                case 0:
+                    System.out.println("Exiting...");
+                    break;
+                default:
+                    System.out.println("Enter a valid choice.");
+            }
+        }
+    }
+}
