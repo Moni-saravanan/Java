@@ -1,0 +1,26 @@
+import java.util.*;
+class Main {
+    public static int getSquare(int n){
+        int rem = 0;
+        int mul = 0;
+        while(n != 0){
+            rem = n%10;
+            mul += (rem*rem);
+            n/=10;
+            
+        }
+        return mul;
+    }
+    public static void main(String[] args) {
+        Scanner io = new Scanner(System.in);
+        int n = io.nextInt();
+        Set<Integer> s = new HashSet<>();
+        while( n != 1 && !s.contains(n)){
+            s.add(n);
+            n=getSquare(n);
+        }
+        s.add(n);
+        System.out.println(s);
+        System.out.println(n==1);
+    }
+}
