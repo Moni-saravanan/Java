@@ -1,0 +1,20 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        HashMap<Character, Integer> mp = new HashMap<>();
+        Scanner io = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int n = io.nextInt();
+        String str = Integer.toString(n);
+        for(char ch : str.toCharArray()){
+            mp.put(ch,mp.getOrDefault(ch,0)+1);
+        } 
+        int count = 0;
+        for(int a : mp.values()){
+            if(a>1){
+                count++;
+            }
+        }
+        System.out.println(count);
+    }
+}
