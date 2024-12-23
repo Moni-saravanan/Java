@@ -1,0 +1,35 @@
+import java.util.Scanner;
+public class demo {
+    public static void main(String[] args) {
+        Scanner io = new Scanner(System.in);       
+        int n=io.nextInt();
+        int m=io.nextInt();
+        int arr[][] = new int[n][m];
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                arr[i][j]=io.nextInt();
+            }
+        }
+        System.out.println(checkScalar(arr,n,m));
+    }
+    public static boolean checkScalar(int[][] arr,int n,int m)
+    {
+        int d=arr[0][0];
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(i==j){
+                    if(arr[i][j]!=d){
+                        return false;
+                    }
+                }
+                else{
+                    if(arr[i][j]!=0){
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+}
